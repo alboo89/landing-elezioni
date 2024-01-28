@@ -36,7 +36,7 @@ const MediaCard = () => {
         </Typography>
         <Typography variant="body2" color="text.secondary">
           Candidata alla carica di consigliere della Regione Sardegna nella
-          tornata elettorale del 25 febbraio 2024 nella lista Vota Sardigna /
+          tornata elettorale del 25 febbraio 2024 per lista Vota Sardigna /
           Coalizione Sarda / Renato Soru Presidente
         </Typography>
       </CardContent>
