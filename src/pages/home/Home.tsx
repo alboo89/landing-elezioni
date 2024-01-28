@@ -12,7 +12,7 @@ import { ThemedLayoutV2 } from '@refinedev/mui';
 import { Header } from '../../components/header';
 
 const Home: React.FC = () => (
-  <Container sx={{ p: '0 !important' }} maxWidth="xxl">
+  <Container sx={{ p: '0 !important' }} maxWidth={false}>
     <ThemedLayoutV2
       Header={() => <Header homepage sticky />}
       Sider={() => <div></div>}

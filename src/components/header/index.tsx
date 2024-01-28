@@ -23,11 +23,14 @@ type IUser = {
   name: string;
   avatar: string;
 };
-type TProps = RefineThemedLayoutV2HeaderProps & {
-  homapage?: boolean;
+export type THeaderProps = RefineThemedLayoutV2HeaderProps & {
+  homepage?: boolean;
 };
 
-export const Header: React.FC<TProps> = ({ sticky = true, homapage = false }) => {
+export const Header: React.FC<THeaderProps> = ({
+  sticky = true,
+  homepage = false,
+}) => {
   const { mode, setMode } = useContext(ColorModeContext);
 
   const { data: user } = useGetIdentity<IUser>();
@@ -41,7 +44,7 @@ export const Header: React.FC<TProps> = ({ sticky = true, homapage = false }) =>
       <Toolbar sx={{ height: '100px' }}>
         <AppIcon />
         <Stack direction="row" width="100%" alignItems="center">
-          {!homapage && <HamburgerMenu />}
+          {!homepage && <HamburgerMenu />}
           <Stack
             direction="row"
             width="100%"
