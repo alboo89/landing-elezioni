@@ -32,7 +32,6 @@ export const Header: React.FC<THeaderProps> = ({
   homepage = false,
 }) => {
   const { mode, setMode } = useContext(ColorModeContext);
-
   const { data: user } = useGetIdentity<IUser>();
 
   const changeLanguage = useSetLocale();
