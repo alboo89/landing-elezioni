@@ -28,16 +28,22 @@ const MediaCard = () => {
   return (
     <Card sx={{ height: '100%', maxWidth: '100%' }}>
       <CardContent>
-        <Typography sx={{}} variant="h3" color="text.primary">
+        <Typography
+          sx={{ mb: 2, textAlign: 'center' }}
+          variant="subtitle1"
+          color="red"
+        >
           SITO WEB IN COSTRUZIONE
         </Typography>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h3" component="div">
           Luciana Mele
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Candidata alla carica di consigliere della Regione Sardegna nella
-          tornata elettorale del 25 febbraio 2024 per la lista Vota Sardigna /
-          Coalizione Sarda / Renato Soru Presidente
+        <Typography variant="h4" color="secondary">
+          Candidata alla carica di consigliere della Regione Sardegna
+          <Typography variant="subtitle1" color="primary">
+            Elezioni del 25 febbraio 2024, lista Vota Sardigna / Coalizione
+            Sarda / Renato Soru Presidente
+          </Typography>
         </Typography>
       </CardContent>
       <CardMedia
