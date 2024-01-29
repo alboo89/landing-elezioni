@@ -8,6 +8,7 @@ import {
   Container,
   IconButton,
   Stack,
+  Theme,
   Typography,
   autocompleteClasses,
   useMediaQuery,
@@ -34,7 +35,7 @@ export default Home;
 
 const MediaCard = () => {
   const translate = useTranslate();
-  const matches = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
   return (
     <Card sx={{ height: '100%', maxWidth: '100%' }}>
