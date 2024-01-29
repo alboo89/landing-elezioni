@@ -10,6 +10,7 @@ import {
   Stack,
   Typography,
   autocompleteClasses,
+  useMediaQuery,
 } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -33,11 +34,13 @@ export default Home;
 
 const MediaCard = () => {
   const translate = useTranslate();
+  const matches = useMediaQuery((theme) => theme.breakpoints.up('sm'));
+
   return (
     <Card sx={{ height: '100%', maxWidth: '100%' }}>
       <CardContent>
         <Typography
-          sx={{ mb: 2, textAlign: 'center' }}
+          sx={{ mb: [0, 2, 2], textAlign: 'center' }}
           variant="subtitle1"
           color="red"
         >
@@ -48,7 +51,7 @@ const MediaCard = () => {
             Luciana Mele
           </Typography>
           <Box alignSelf="center" height="100%">
-            <ButtonGroup>
+            <ButtonGroup orientation={matches ? 'horizontal' : 'vertical'}>
               <Button
                 variant="outlined"
                 size="medium"
