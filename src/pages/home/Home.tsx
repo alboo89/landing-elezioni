@@ -9,6 +9,7 @@ import {
   IconButton,
   Stack,
   Typography,
+  autocompleteClasses,
 } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -77,7 +78,8 @@ const MediaCard = () => {
         </Typography>
       </CardContent>
       <CardMedia
-        sx={{ minHeight: '100%' }}
+        sx={{ maxHeight: '100%', maxWidth: '100%' }}
+        component="img"
         image={lucianaBG}
         title="Vota Luciana Mele!"
       />
