@@ -5,37 +5,26 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Container,
-  IconButton,
   Stack,
   Theme,
   Typography,
-  autocompleteClasses,
   useMediaQuery,
 } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import lucianaBG from '../../assets/luciana.png';
-import { ThemedLayoutV2 } from '@refinedev/mui';
-import { Header } from '../../components/header';
 import { useTranslate } from '@refinedev/core';
+import { useDocumentTitle } from '@refinedev/react-router-v6';
 
-const Home: React.FC = () => (
-  <Container sx={{ p: '0 !important' }} maxWidth={false}>
-    <ThemedLayoutV2
-      Header={() => <Header homepage sticky />}
-      Sider={() => <div></div>}
-    >
-      <MediaCard />
-    </ThemedLayoutV2>
-  </Container>
-);
+const Home: React.FC = () => <MediaCard />;
 
 export default Home;
 
 const MediaCard = () => {
   const translate = useTranslate();
   const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
+
+  useDocumentTitle('Luciana Mele 🍎');
 
   return (
     <Card sx={{ height: '100%', maxWidth: '100%' }}>
