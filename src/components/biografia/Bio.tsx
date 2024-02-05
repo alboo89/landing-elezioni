@@ -157,7 +157,7 @@ const BioContent = () => {
                 #azione
               </Typography>
               Il mio sogno è di poter migliorare la società in cui viviamo. Sono
-              convinta che insieme possiamo costruire un futuro più sostenibile:
+              convinta che insieme possiamo costruire un futuro migliore:
               per questo mi serve il tuo sostegno!
             </Typography>
           </Typography>
