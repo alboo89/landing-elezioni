@@ -4,6 +4,7 @@ import App from './App';
 import './i18n';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
+import './assets/fonts/inter.scss';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCHdiMlGzDVAGVUgRN0oiJqngYNOLIUsPo',
