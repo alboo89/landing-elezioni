@@ -29,13 +29,6 @@ const MediaCard = () => {
   return (
     <Card sx={{ height: '100%', maxWidth: '100%' }}>
       <CardContent>
-        <Typography
-          sx={{ mb: [0, 2, 2], textAlign: 'center' }}
-          variant="subtitle1"
-          color="red"
-        >
-          {translate('page.home.wip')}
-        </Typography>
         <Stack sx={{ mb: 2, textAlign: 'center' }} direction="row" spacing={5}>
           <Typography gutterBottom variant="h3" component="div">
             Luciana Mele
@@ -74,7 +67,7 @@ const MediaCard = () => {
         sx={{ maxHeight: '100%', maxWidth: '100%' }}
         component="img"
         image={lucianaBG}
-        title="Vota Luciana Mele!"
+        title="Luciana Mele elezioni regionali sardegna 2024"
       />
     </Card>
   );
