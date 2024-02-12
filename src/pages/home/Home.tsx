@@ -1,17 +1,12 @@
 import {
   Box,
-  Button,
-  ButtonGroup,
   Card,
   CardContent,
   CardMedia,
   Stack,
-  Theme,
   Typography,
   useMediaQuery,
 } from '@mui/material';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import lucianaBG from '../../assets/luciana.png';
 import { useTranslate } from '@refinedev/core';
 import { useDocumentTitle } from '@refinedev/react-router-v6';
@@ -22,7 +17,6 @@ export default Home;
 
 const MediaCard = () => {
   const translate = useTranslate();
-  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
   useDocumentTitle('Luciana Mele 🍎');
 
@@ -34,7 +28,7 @@ const MediaCard = () => {
             Luciana Mele
           </Typography>
           <Box alignSelf="center" height="100%">
-            <ButtonGroup orientation={matches ? 'horizontal' : 'vertical'}>
+            {/* <ButtonGroup orientation={matches ? 'horizontal' : 'vertical'}>
               <Button
                 variant="outlined"
                 size="medium"
@@ -53,7 +47,7 @@ const MediaCard = () => {
               >
                 <InstagramIcon />
               </Button>
-            </ButtonGroup>
+            </ButtonGroup> */}
           </Box>
         </Stack>
         <Typography variant="h4" color="secondary">

@@ -1,44 +1,22 @@
-import DarkModeOutlined from '@mui/icons-material/DarkModeOutlined';
-import LightModeOutlined from '@mui/icons-material/LightModeOutlined';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
-import FormControl from '@mui/material/FormControl';
-import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import {
-  useGetLocale,
-  useGo,
-  useSetLocale,
-  useTranslate,
-} from '@refinedev/core';
-import { HamburgerMenu, RefineThemedLayoutV2HeaderProps } from '@refinedev/mui';
-import i18n from 'i18next';
-// import React, { useContext } from 'react';
-// import { ColorModeContext } from '../../contexts/color-mode';
+import { useGo, useTranslate } from '@refinedev/core';
+import { RefineThemedLayoutV2HeaderProps } from '@refinedev/mui';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import { AppIcon } from '../app-icon';
-import sa from '../../assets/sa.png';
-import it from '../../assets/it.webp';
 import { navItems } from './helpers';
 import { useLocation } from 'react-router-dom';
+import { Box, Button, ButtonGroup, Theme, useMediaQuery } from '@mui/material';
 
 export type THeaderProps = RefineThemedLayoutV2HeaderProps & {
   homepage?: boolean;
 };
 
-export const Header: React.FC<THeaderProps> = ({
-  sticky = true,
-  homepage = false,
-}) => {
-  // const { mode, setMode } = useContext(ColorModeContext);
-
-  const changeLanguage = useSetLocale();
-  const locale = useGetLocale();
-  const currentLocale = locale();
+export const Header: React.FC<THeaderProps> = ({ sticky = true }) => {
   const translate = useTranslate();
   const go = useGo();
   const { pathname } = useLocation();
@@ -50,23 +28,35 @@ export const Header: React.FC<THeaderProps> = ({
   };
 
   const handleNavMenu = (item: string) => {
-    // navigate eith router to /bio
     go({ to: `/${item}` });
   };
+  const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
   return (
     <AppBar position={sticky ? 'sticky' : 'relative'} color="secondary">
       <Toolbar sx={{ height: '100px' }}>
-        <AppIcon />
-        <Stack direction="row" width="100%" alignItems="center">
-          {!homepage && <HamburgerMenu />}
-          <Stack direction="row" ml={10} width="100%" gap={1}>
+        <Stack direction="row" width="100%" justifyContent="center">
+          <Stack
+            component="a"
+            target="_blank"
+            href="https://votasardigna.org/"
+            justifySelf="flex-start"
+          >
+            <AppIcon />
+          </Stack>
+          <Stack
+            flex="1"
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
             {navItems.map((item) => (
               <MenuItem
                 key={item}
                 onClick={() => handleNavMenu(item)}
                 sx={{
-                  borderRadius: '10px',
+                  borderRadius: 20,
+                  height: 40,
                 }}
               >
                 <Typography
@@ -81,85 +71,30 @@ export const Header: React.FC<THeaderProps> = ({
               </MenuItem>
             ))}
           </Stack>
-          <Stack
-            direction="row"
-            width="100%"
-            justifyContent="flex-end"
-            alignItems="center"
-            gap="16px"
-          >
-            {/* <FormControl sx={{ minWidth: 64 }}>
-              <Select
-                disableUnderline
-                defaultValue={currentLocale}
-                inputProps={{ 'aria-label': 'Without label' }}
-                variant="standard"
-                sx={{
-                  color: 'inherit',
-                  '& .MuiSvgIcon-root': {
-                    color: 'inherit',
-                  },
-                  '& .MuiStack-root > .MuiTypography-root': {
-                    display: {
-                      xs: 'none',
-                      sm: 'block',
-                    },
-                  },
-                }}
+          <Box alignSelf="center" height="100%">
+            <ButtonGroup orientation={matches ? 'horizontal' : 'vertical'}>
+              <Button
+                variant="outlined"
+                size="medium"
+                sx={{ borderColor: 'secondary.50', color: 'secondary.50' }}
+                href="https://www.facebook.com/luciana.mele.756"
+                target="_blank"
+                rel="noreferrer"
               >
-                {[...(i18n.languages ?? [])].sort().map((lang: string) => (
-                  <MenuItem
-                    selected={currentLocale === lang}
-                    key={lang}
-                    defaultValue={lang}
-                    onClick={() => {
-                      changeLanguage(lang);
-                    }}
-                    value={lang}
-                  >
-                    <Stack
-                      direction="row"
-                      alignItems="center"
-                      justifyContent="center"
-                    >
-                      <Avatar
-                        sx={{
-                          width: '24px',
-                          height: '24px',
-                          marginRight: '5px',
-                        }}
-                        src={lang === 'it' ? it : sa}
-                      />
-                      <Typography>
-                        {lang === 'it' ? 'Italiano' : 'Sardu Campidanesu'}
-                      </Typography>
-                    </Stack>
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl> */}
-
-            {/* <IconButton
-              color="inherit"
-              onClick={() => {
-                setMode();
-              }}
-            >
-              {mode === 'dark' ? <LightModeOutlined /> : <DarkModeOutlined />}
-            </IconButton> */}
-
-            {/* <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <IconButton
-                size="large"
-                aria-label="show 17 new notifications"
-                color="inherit"
+                <FacebookIcon sx={{ color: 'secondary.50' }} />
+              </Button>
+              <Button
+                variant="outlined"
+                size="medium"
+                sx={{ borderColor: 'secondary.50', color: 'secondary.50' }}
+                href="https://www.instagram.com/lucianamele_62"
+                target="_blank"
+                rel="noreferrer"
               >
-                <Badge badgeContent={17} color="error">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-            </Box> */}
-          </Stack>
+                <InstagramIcon sx={{ color: 'secondary.50' }} />
+              </Button>
+            </ButtonGroup>
+          </Box>
         </Stack>
       </Toolbar>
     </AppBar>
